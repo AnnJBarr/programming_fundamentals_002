@@ -24,13 +24,39 @@ const catalogue = [
 
 function checkBook(title) {
   if (!title) throw new Error("Please provide a title");
-  // Your code here
-}
+  
+  let result = false
+  let i = 0;
+  while (i < catalogue.length) {
+   const book = catalogue[i];
+   let bookLS = book.toLowerCase();
+   let titleLS = title.toLowerCase();
+   
+   if (bookLS.includes(titleLS)) {
+      result = true
+  
+   }
+   i++; 
+   }
+   return result
+  }   
 
-function countBooksByKeyword(keyword) {
-  if (!keyword) throw new Error("Please provide a keyword");
-  // Your code here
-}
+  function countBooksByKeyword(keyword) {
+    if (!keyword) throw new Error("Please provide a keyword");
+    let count = 0;
+    let i = 0;
+    while (i < catalogue.length) {
+     const book = catalogue[i];
+     let bookLS = book.toLowerCase();
+     let keywordLS = keyword.toLowerCase();
+         
+     if (bookLS.includes(keywordLS)) { count = count + 1;
+  }
+  i++;
+  
+  }
+  return count;
+  }
 
 function getBooksByAuthor(author) {
   if (!author) throw new Error("Please provide an author");
